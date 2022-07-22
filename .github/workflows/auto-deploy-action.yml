@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.PASSWORD }} #password login to server
           port: ${{ secrets.PORT }} #port of server - often port is 22
           script: | # run with multiple script
-            cd /home/
+            cd work/
             git clone https://github.com/thanhtran6916/auto-deploy-project-with-action.git
             cd auto-deploy-project-with-action
             mvn clean install
