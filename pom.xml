@@ -14,7 +14,7 @@
     <name>demo-auto-deploy-with-action</name>
     <description>demo-auto-deploy-with-action</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
     <dependencies>
         <dependency>
