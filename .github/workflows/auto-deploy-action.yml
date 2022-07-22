@@ -20,7 +20,7 @@ jobs:
           port: ${{ secrets.PORT }} #port of server - often port is 22
           script: | # run with multiple script
             cd /home/
-            git clone git@github.com:trongcong/demo-auto-deploy.git
+            git clone git@github.com:thanhtran6916/auto-deploy-project-with-action.g
             cd demo-auto-deploy
             git pull
             printf "${{ secrets.ENV }}" > .env.production
