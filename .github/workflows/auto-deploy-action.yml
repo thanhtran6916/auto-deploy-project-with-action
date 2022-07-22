@@ -20,7 +20,7 @@ jobs:
           port: ${{ secrets.PORT }} #port of server - often port is 22
           script: | # run with multiple script
             cd /home/
-            git clone git@github.com:thanhtran6916/auto-deploy-project-with-action.git
+            git clone https://github.com/thanhtran6916/auto-deploy-project-with-action.git
             cd auto-deploy-project-with-action
             mvn clean install
             java -jar .\target\demo-auto-deploy-with-action-0.0.1-SNAPSHOT.jar
