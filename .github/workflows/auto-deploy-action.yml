@@ -22,6 +22,5 @@ jobs:
             cd work/
             git pull https://github.com/thanhtran6916/auto-deploy-project-with-action.git
             cd auto-deploy-project-with-action
-            mvn clean
-            mvn install
-            java -jar *.jar
+            mvn clean install
+            java -jar target/*.jar
