@@ -24,7 +24,7 @@ jobs:
 #            git pull origin master
 #            mvn clean install
 #            java -jar target/*.jar
-          run: echo done
+#          run: echo done
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
 #      - name: build
