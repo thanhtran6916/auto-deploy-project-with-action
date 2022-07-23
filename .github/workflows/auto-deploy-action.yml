@@ -30,4 +30,4 @@ jobs:
             cd work/auto-deploy-project-with-action/
             git pull origin master
             mvn clean install
-            java -jar *.jar
+            java -jar /target/*.jar
