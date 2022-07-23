@@ -22,5 +22,5 @@ jobs:
             cd work/
             git pull https://github.com/thanhtran6916/auto-deploy-project-with-action.git
             cd auto-deploy-project-with-action
-            mvn clean install
-          run: java -jar work/auto-deploy-project-with-action/target/*.jar
+            docker build -t auto-deploy .
+          run: docker run -p 443:8080 auto-deploy
