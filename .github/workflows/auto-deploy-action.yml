@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: build
-        uses: actions/maven-build
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }} #hostname of server
           username: ${{ secrets.USERNAME }} #username login to server
