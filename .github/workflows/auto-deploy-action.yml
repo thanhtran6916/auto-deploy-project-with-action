@@ -19,5 +19,4 @@ jobs:
           password: ${{ secrets.PASSWORD }} #password login to server
           port: ${{ secrets.PORT }} #port of server - often port is 22
       - name: build maven
-        uses: comchangs/action-maven@master
         run: mvn clean install
