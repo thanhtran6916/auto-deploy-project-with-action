@@ -11,7 +11,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-#      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 #      - name: build
 #        uses: appleboy/ssh-action@master
 #        with:
@@ -21,10 +21,10 @@ jobs:
 #          port: ${{ secrets.PORT }} #port of server - often port is 22
 #          script: | # run with multiple script
 #            cd work/auto-deploy-project-with-action/
-##            git pull origin master
-##            mvn clean install
-##            java -jar target/*.jar
-#          run: echo done
+#            git pull origin master
+#            mvn clean install
+#            java -jar target/*.jar
+          run: echo done
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
 #      - name: build
