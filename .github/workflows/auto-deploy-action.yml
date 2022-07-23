@@ -20,7 +20,7 @@ jobs:
           port: ${{ secrets.PORT }} #port of server - often port is 22
           script: | # run with multiple script
             cd work/
-            git pull https://github.com/thanhtran6916/auto-deploy-project-with-action.git
-            cd auto-deploy-project-with-action
+            cd auto-deploy-project-with-action/
+            git pull origin master
             docker build -t auto-deploy .
           run: docker run -p 443:8080 auto-deploy
