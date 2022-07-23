@@ -70,4 +70,4 @@ jobs:
           KEY: ${{ secrets.SSH_KEY }}
         with:
           source: "*"
-          target: "/work"
+          target: "/path/in/your/server"
