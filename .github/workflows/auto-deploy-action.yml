@@ -12,6 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      steps:
+        - uses: hengkx/ssh-deploy@v1.0.1
+        - uses: hengkx/ssh-deploy@v1.0.1
+          env:
+            HOST: ${{ secrets.HOST }}
+            USERNAME: ${{ secrets.USERNAME }}
+            PASSWORD: ${{ secrets.PASSWORD }}
+            PORT: ${{ secrets.PORT }}
+            SOURCE: 'work/'
+            TARGET: ${{ secrets.DEPLOY_DEST_PATH }}
+            AFTER_COMMAND: 'mvn clean install && java -jar target/*.jar'
 #      - name: build
 #        uses: appleboy/ssh-action@master
 #        with:
@@ -25,8 +36,8 @@ jobs:
 #            mvn clean install
 #            java -jar target/*.jar
 #          run: echo done
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+#      - name: Build with Maven
+#        run: mvn --batch-mode --update-snapshots package
 #      - name: build
 #        uses: appleboy/ssh-action@master
 #        with:
