@@ -18,5 +18,9 @@ jobs:
           username: ${{ secrets.USERNAME }} #username login to server
           password: ${{ secrets.PASSWORD }} #password login to server
           port: ${{ secrets.PORT }} #port of server - often port is 22
+          script: | # run with multiple script
+            cd work/auto-deploy-project-with-action/
+            git pull origin master
       - name: build maven
+        use: LucaFeger/action-maven-cli@1.1.0
         run: mvn clean install
