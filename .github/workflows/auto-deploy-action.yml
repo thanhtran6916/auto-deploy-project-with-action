@@ -21,6 +21,5 @@ jobs:
           script: | # run with multiple script
             cd work/
             cd auto-deploy-project-with-action/
-            git pull origin master
             docker build -t auto-deploy .
           run: docker run -p 443:8080 auto-deploy
