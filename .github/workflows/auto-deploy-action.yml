@@ -18,9 +18,9 @@ jobs:
           username: ${{ secrets.USERNAME }} #username login to server
           password: ${{ secrets.PASSWORD }} #password login to server
           port: ${{ secrets.PORT }} #port of server - often port is 22
-          script: | # run with multiple script
-            cd work/
-            cd auto-deploy-project-with-action/
-            git pull origin master
-            sudo docker build -t auto-deploy .
-          run: docker run -p 443:8080 auto-deploy
+          use_existing_version_if_available: false
+          application_name: autocluck
+          environment_name: Autocluck-env
+          version_label: ${{github.SHA}}
+          region: us-east-1
+          deployment_package: demo-auto-deploy-with-action-0.0.1-SNAPSHOT.jar
