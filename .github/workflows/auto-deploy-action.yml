@@ -19,7 +19,7 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
           PORT: ${{ secrets.PORT }}
           SOURCE: 'work/'
-          TARGET: ${{ secrets.DEPLOY_DEST_PATH }}
+          TARGET: '8085'
           AFTER_COMMAND: 'mvn clean install && java -jar target/*.jar'
 #      - name: build
 #        uses: appleboy/ssh-action@master
