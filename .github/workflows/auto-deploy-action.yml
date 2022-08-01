@@ -11,17 +11,6 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-#      - uses: actions/checkout@v2
-#      - uses: Rxinui/ssh-deploy-repo-action@v1
-#        with:
-#            # Required
-#            ssh-user: ${{ secrets.USERNAME }}
-#            ssh-password: ${{ secrets.PASSWORD }}
-#            ssh-domain: ${{ secrets.OVH_HOSTING_DOMAIN }}
-#            # Optional
-#            git-clone-by: ssh
-#            target-branch: develop
-#            target-directory: /opt/my-awesome-project/
       - name: build
         uses: appleboy/ssh-action@master
         with:
@@ -30,7 +19,7 @@ jobs:
           password: ${{ secrets.PASSWORD }} #password login to server
           port: ${{ secrets.PORT }} #port of server - often port is 22
           script: | # run with multiple script
-            cd work/auto-deploy-project-with-action/
+            cd worker/auto-deploy-project-with-action/
             git pull origin master
             mvn clean install
             docker build -t auto-depoloy .
