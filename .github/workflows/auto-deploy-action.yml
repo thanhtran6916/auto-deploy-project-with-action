@@ -23,6 +23,7 @@ jobs:
             git pull origin master
             mvn clean install
             docker build -t auto-depoloy .
+            docker-compose up
           run: docker-compose -p worker/auto-deploy-project-with-action -f docker-compose.yml up
 #      - name: Build with Maven
 #        run: mvn --batch-mode --update-snapshots package
