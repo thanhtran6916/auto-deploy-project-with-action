@@ -1,17 +1,17 @@
-#name: Auto deploy
-#
-#on:
-#  push:
-#    branches:
-#      - main
-#      - master
-#
-#jobs:
-#  deploy:
-#    name: Deploy
-#    runs-on: ubuntu-latest
-#    steps:
-##      - uses: actions/checkout@v3
+name: Auto deploy
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+#      - uses: actions/checkout@v2
 #      - uses: Rxinui/ssh-deploy-repo-action@v1
 #        with:
 #            # Required
@@ -22,19 +22,19 @@
 #            git-clone-by: ssh
 #            target-branch: develop
 #            target-directory: /opt/my-awesome-project/
-#      - name: build
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.HOST }} #hostname of server
-#          username: ${{ secrets.USERNAME }} #username login to server
-#          password: ${{ secrets.PASSWORD }} #password login to server
-#          port: ${{ secrets.PORT }} #port of server - often port is 22
-#          script: | # run with multiple script
-#            cd work/auto-deploy-project-with-action/
-#            git pull origin master
-#            mvn clean install
-#            java -jar target/*.jar
-#          run: echo done
+      - name: build
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }} #hostname of server
+          username: ${{ secrets.USERNAME }} #username login to server
+          password: ${{ secrets.PASSWORD }} #password login to server
+          port: ${{ secrets.PORT }} #port of server - often port is 22
+          script: | # run with multiple script
+            cd work/auto-deploy-project-with-action/
+            git pull origin master
+            mvn clean install
+            docker build -t auto-depoloy .
+          run: docker-compose up
 #      - name: Build with Maven
 #        run: mvn --batch-mode --update-snapshots package
 #      - name: build
@@ -50,24 +50,3 @@
 #            mvn clean install
 #            java -jar target/*.jar
 #          run: echo done
-
-name: auto-deploy
-on:
-  push:
-    branches: [ 'main', 'master' ]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy source-code
-        uses: appleboy/scp-action@master
-        env:
-          HOST: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          KEY: ${{ secrets.SSH_KEY }}
-        with:
-          source: "*"
-          target: "/path/in/your/server"
