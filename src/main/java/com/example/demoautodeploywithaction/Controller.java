@@ -13,7 +13,7 @@ public class Controller {
 
     @GetMapping
     public ResponseEntity<String> demoAction() {
-        return new ResponseEntity<>("Hello word!", HttpStatus.OK);
+        return new ResponseEntity<>("Hello word!!!", HttpStatus.OK);
     }
 
     @PostMapping("/post")
