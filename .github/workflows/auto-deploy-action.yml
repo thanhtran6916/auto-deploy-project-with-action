@@ -22,7 +22,7 @@ jobs:
             cd worker/auto-deploy-project-with-action/
             git pull origin master
             mvn clean install
-            docker build -t auto-depoloy .
+            docker build -t auto-deploy .
             docker-compose up -d
 #      - name: Build with Maven
 #        run: mvn --batch-mode --update-snapshots package
