@@ -2,6 +2,8 @@ version: '2'
 services:
   app:
     image: auto-deploy:latest
+    environment:
+      - MESSAGE_HELLO=Hello word!
     ports:
       - "8085:8085"
     restart: always
