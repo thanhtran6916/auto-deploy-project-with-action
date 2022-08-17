@@ -19,23 +19,11 @@ jobs:
           password: ${{ secrets.PASSWORD }} #password login to server
           port: ${{ secrets.PORT }} #port of server - often port is 22
           script: | # run with multiple script
-            cd worker/auto-deploy-project-with-action/
-            git pull origin master
+            cd worker
+            git clone https://github.com/thanhtran6916/summer-activities-for-kids-back-end.git
+            git checkout develop
+            git pull origin develop
+            cd summer-activities-for-kids-back-end
             mvn clean install
             docker build -t auto-deploy .
             docker-compose up -d
-#      - name: Build with Maven
-#        run: mvn --batch-mode --update-snapshots package
-#      - name: build
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.HOST }} #hostname of server
-#          username: ${{ secrets.USERNAME }} #username login to server
-#          password: ${{ secrets.PASSWORD }} #password login to server
-#          port: ${{ secrets.PORT }} #port of server - often port is 22
-#          script:
-#            cd work/auto-deploy-project-with-action/
-#            git pull origin master
-#            mvn clean install
-#            java -jar target/*.jar
-#          run: echo done
