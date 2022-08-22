@@ -1,9 +1,20 @@
 version: '2'
 services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=auto_deploy
+    ports:
+      - "7000:5432"
+    restart: always
   app:
     image: auto-deploy:latest
     environment:
-      - MESSAGE_HELLO=Hello word!
+      - DB_URL=jdbc:postgresql://postgres:5432/auto_deploy
+      - DB_USER=postgres
+      - DB_PASSWORD=123456
     ports:
       - "8085:8085"
     restart: always
